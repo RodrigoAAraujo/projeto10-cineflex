@@ -17,10 +17,8 @@ export default function SessionsPage(){
         axios.get(URL)
             .then(res =>{ 
                 setSessions(res.data)
-                console.log(res.data.days)
             })
             .catch(err =>{
-                console.log(err)
             })
     },[])
     
