@@ -3,8 +3,7 @@ import styled from "styled-components"
 
 export default function Movie({ id, title, posterURL }) {
     return (
-
-        <MovieStyle>
+        <MovieStyle data-identifier="movie-outdoor">
             <Link to={`/sessoes/${id}`}>
                 <img src={posterURL} alt={title} />
             </Link>

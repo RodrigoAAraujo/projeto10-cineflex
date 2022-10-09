@@ -32,21 +32,30 @@ export default function SuccessPage(){
                 <h2>Pedido feito com sucesso!</h2>
                 <div>
                     <h3> Filme e Sessão</h3>
-                    <p>{successInfo.state.session.movie.title}</p>
-                    <p>{successInfo.state.session.day.date}   {successInfo.state.session.name}</p>
+                    <p data-identifier="movie-session-infos-reserve-finished">
+                        {successInfo.state.session.movie.title}
+                    </p>
+                    <p data-identifier="movie-session-infos-reserve-finished">
+                        {successInfo.state.session.day.date}   {successInfo.state.session.name}
+                    </p>
                 </div>
                 <div>
                     <h3> Ingresso</h3>
-                    {successInfo.state.seatsNumber.map((t)=> <p>Assento {t}</p>)}
+                    {successInfo.state.seatsNumber.map((t)=> <p data-identifier="seat-infos-reserve-finished">Assento {t}</p>)}
 
                 </div>
                 <div>
                     <h3> Comprador(es)</h3>
-                    {successInfo.state.customers.compradores.map((t)=> <><p>Nome: {t.nome} </p><p>CPF: {t.cpf}</p></> )}
+                    {successInfo.state.customers.compradores.map((t)=> 
+                    <>
+                        <p data-identifier="buyer-infos-reserve-finished">Nome: {t.nome} </p>
+                        <p data-identifier="buyer-infos-reserve-finished">CPF: {t.cpf}</p>
+                    </> 
+                    )}
 
                 </div>
 
-                <button>
+                <button data-identifier="back-to-home-btn">
                     <Link to={"/"}>
                         Voltar para Home
                     </Link>

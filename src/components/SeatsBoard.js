@@ -47,7 +47,10 @@ function Seat({seat, allSeats, select}){
     }
 
     return(
-        <SeatStyle checkBackgorund={checkBack} checkBorder={checkBorder} onClick={() => toggleSelection()}>
+        <SeatStyle data-identifier="seat" 
+            checkBackgorund={checkBack} 
+            checkBorder={checkBorder} onClick={() => toggleSelection()}
+            >
             {name}
         </SeatStyle>
     )
@@ -57,15 +60,15 @@ function SeatsLegend(){
     return(
         <SeatLegendStyle>
             <div>  
-                <button className="selected" disabled></button>
+                <button data-identifier="seat-selected-subtitle" className="selected" disabled></button>
                 <p>Selecionado</p>
             </div>
             <div>
-                <button className="available" disabled></button>
+                <button data-identifier="seat-available-subtitle" className="available" disabled></button>
                 <p>Disponível</p>
             </div>
             <div>
-                <button className="unavailable" disabled ></button>
+                <button data-identifier="seat-unavailable-subtitle" className="unavailable" disabled ></button>
                 <p>Indisponível</p>
             </div>
 

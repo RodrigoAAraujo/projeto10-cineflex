@@ -4,10 +4,10 @@ export default function Footer({posterURL, title, day, time}){
     console.log(day)
     return(
         <FooterStyle>
-            <div>
+            <div data-identifier="movie-img-preview">
                 <img src={posterURL}/>
             </div>
-            <span>
+            <span data-identifier="movie-and-session-infos-preview">
                 <h1>{title}</h1>
                 {(day !== undefined)?
                     <h1>{day} - {time}</h1>

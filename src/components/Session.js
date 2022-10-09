@@ -7,7 +7,7 @@ export default function Session({daySessions}){
 
     return (
         <SessionStyle>
-            <h3>{weekday} - {date}</h3>
+            <h3 data-identifier="session-date">{weekday} - {date}</h3>
             <div>
                 {showtimes.map((s) => <SessionButton id={s.id} time={s.name}/>)}
             </div>
@@ -18,7 +18,7 @@ export default function Session({daySessions}){
 function SessionButton({id, time}){
     return(
         <Link to={`/assentos/${id}`}>
-            <button>{time}</button>
+            <button data-identifier="hour-minute-btn">{time}</button>
         </Link>
     )
 }

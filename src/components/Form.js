@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
-import SeatsBoard from "./SeatsBoard"
 
 export default function FormSeats({ postInfo, seatsSelected }) {
 
@@ -13,14 +12,11 @@ export default function FormSeats({ postInfo, seatsSelected }) {
         setBody({...body, ids:seatsSelected.map((s)=> s.id)})
     }, [seatsSelected])
 
-
-
-
     return (
         <FormStyle onSubmit={(e) => postInfo(e , body)}>
             {body.ids.map((s) => <FormInfo seatId={s} setBody={setBody} body={body} buyers={body.compradores}/>)}
 
-            <button type="submit">Reservar assento(s)</button>
+            <button data-identifier="reservation-btn" type="submit">Reservar assento(s)</button>
         </FormStyle>
     )
 }
@@ -37,12 +33,17 @@ function FormInfo({seatId, setBody, body, buyers}) {
     return (
         <div>
             <label htmlFor="name">Nome do Comprador:</label>
-            <input name="name" type="text" required placeholder="Digite seu nome..." 
+
+            <input data-identifier="buyer-name-input" name="name" 
+            type="text" required placeholder="Digite seu nome..." 
             value={seatInfo.nome} onChange={(e) => setSeatInfo({...seatInfo, nome: e.target.value})}
             />
 
+
             <label htmlFor="cpf">CPF do Comprador:</label>
-            <input name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" required placeholder="Digite seu cpf..." 
+
+            <input data-identifier="buyer-cpf-input" name="cpf" 
+            pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" required placeholder="Digite seu cpf..." 
             value={seatInfo.cpf} onChange={(e) => setSeatInfo({...seatInfo, cpf: e.target.value})}
             />
         </div>
