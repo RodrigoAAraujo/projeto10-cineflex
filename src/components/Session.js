@@ -46,10 +46,9 @@ const SessionStyle = styled.div`
         color: #ffffff;
         border-radius: 3px;
         margin-right: 8px;
-    
         font-size: 18px;
-        cursor: pointer;
         font-weight: 400;
+        cursor: pointer;
     }
 
     div{

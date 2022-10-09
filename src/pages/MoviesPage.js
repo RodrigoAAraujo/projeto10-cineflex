@@ -43,6 +43,13 @@ const MoviesPageStyle = styled.main`
     justify-content: center;
     flex-direction: column;
 
+    h2{
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+        margin:28px 0px;
+    }
+
     div{
         display: flex;
         align-items: center;

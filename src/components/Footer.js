@@ -47,5 +47,6 @@ const FooterStyle = styled.footer`
         font-weight: 400;
         color: #293845;
         margin-left: 14px;
+        margin-top: 5px;
     }
 `

@@ -10,7 +10,6 @@ export default function FormSeats({ postInfo, seatsSelected }) {
     })
 
     useEffect(()=>{
-        console.log(seatsSelected)
         setBody({...body, ids:seatsSelected.map((s)=> s.id)})
     }, [seatsSelected])
 
@@ -46,18 +45,23 @@ function FormInfo({seatId, setBody, body, buyers}) {
             <input name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" required placeholder="Digite seu cpf..." 
             value={seatInfo.cpf} onChange={(e) => setSeatInfo({...seatInfo, cpf: e.target.value})}
             />
-
         </div>
     )
 }
 
 const FormStyle = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
     div{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         align-items: flex-start;
-        max-width: 400px;
+        width: 95%;
+        max-width: 600px;
 
         label{
             margin: 8px;
@@ -79,17 +83,21 @@ const FormStyle = styled.form`
             letter-spacing: 0em;
             text-align: left;
 
+            &::placeholder{
+                font-size: 18px;
+                font-style: italic;
+                font-weight: 400;
+                color: #7A7A7A;
+            }
+
         }
     }
 
     button{
-
         margin-top: 50px;
-
         width: 225px;
         height: 42px;
 
-        align-self: center;
         background-color: #E8833A;
         color: #ffffff;
         border-radius: 3px;
@@ -98,7 +106,7 @@ const FormStyle = styled.form`
         font-weight: 400;
 
         cursor: pointer;
-        justify-self: center;
+
     }   
 
   

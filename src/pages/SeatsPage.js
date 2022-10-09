@@ -14,6 +14,7 @@ export default function SeatsPage(){
     const[seatsSelected, setSeatsSelected] = useState([])
     const navigate = useNavigate()
 
+
     useEffect(()=> {
         const URL = `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionId.sessionId}/seats`
         axios.get(URL)
@@ -26,14 +27,8 @@ export default function SeatsPage(){
     }, [])
 
     function postInfo(e, body){
-        console.log(body)
         e.preventDefault()
-        const URL = "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many"
-        axios.post(URL, body)
-            .then(()=> {
-                navigate("/sucesso", {state: {seatBougth: body,seatNumber:seatsSelected.name, movie:seats.movie}})
-            })
-            .catch(err => {})
+        navigate("/sucesso", {state: {customers: body,seatsNumber:seatsSelected.map((s) => s.name), session:seats}})
     }
     
     if(seats === null){
@@ -44,7 +39,7 @@ export default function SeatsPage(){
             <SeatsPageStyle>
                 <h2>Selecione o(s) assento(s)</h2>
 
-                <SeatsBoard seats={seats.seats} allSeats={seats} select={setSeatsSelected}/>
+                <SeatsBoard seats={seats.seats} allSeatsSelected={seatsSelected} select={setSeatsSelected}/>
 
                 {(seatsSelected.length > 0)? 
                     <FormSeats postInfo={postInfo} seatsSelected={seatsSelected}/>:

@@ -28,7 +28,7 @@ export default function SessionsPage(){
     else{
         return (
             <SessionsPageStyle>
-                <h2>Selecione o filme</h2>
+                <h2>Selecione o horário</h2>
                 <div>
                     {sessions.days.map((d) => <Session daySessions={d}/>)}
                 </div>
