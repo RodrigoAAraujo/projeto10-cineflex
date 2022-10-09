@@ -1,13 +1,18 @@
 import styled from "styled-components"
 
-export default function Footer({posterURL, title}){
-    console.log(title)
+export default function Footer({posterURL, title, day, time}){
+    console.log(day)
     return(
         <FooterStyle>
             <div>
                 <img src={posterURL}/>
             </div>
-            <h1>{title}</h1>
+            <span>
+                <h1>{title}</h1>
+                {(day !== undefined)?
+                    <h1>{day} - {time}</h1>
+                : null}
+            </span>
         </FooterStyle>
     )
 }

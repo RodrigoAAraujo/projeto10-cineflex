@@ -10,7 +10,6 @@ export default function Header(){
 
 const HeaderStyle = styled.header`
     color: #E8833A;
-    font-family: 'Roboto', sans-serif;
     font-size: 34px;
     font-weight: 400;
     line-height: 40px;

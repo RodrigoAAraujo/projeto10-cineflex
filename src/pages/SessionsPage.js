@@ -41,5 +41,16 @@ export default function SessionsPage(){
 }
 
 const SessionsPageStyle = styled.main`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom:137px;
 
+    h2{
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+        margin:28px 0px;
+        letter-spacing: 0.08em;
+    }
 `

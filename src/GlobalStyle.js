@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         line-height: 1;
+        font-family: 'Roboto', sans-serif;
     }
     ol, ul {
         list-style: none;
@@ -47,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
     }
     *{
         box-sizing: border-box;
+    }
+    button{
+        outline: none;
+        border: none;
     }
 `
 
