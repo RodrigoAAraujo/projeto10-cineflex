@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function Session({daySessions}){
 
-    const {date,id,showtimes,weekday} = daySessions
+    const {date,showtimes,weekday} = daySessions
 
     return (
         <SessionStyle>

@@ -5,9 +5,11 @@ import { useEffect, useState } from "react"
 
 import Movie from "../components/Movie"
 import LoadingPage from "./LoadingPage"
+import { useNavigate } from "react-router-dom"
 
 
 export default function MoviesPage(){
+    const navigate = useNavigate()
     const [Movies, setMovies] = useState(null)
 
     useEffect(()=> {
@@ -16,11 +18,11 @@ export default function MoviesPage(){
             .then(res =>{
                 setMovies(res.data)
             })
-            .catch(err =>{
-                console.log(err)
+            .catch(() =>{
+                navigate("/erro")
             })
 
-    },[])
+    }, [])
 
     if(Movies === null){
         return <LoadingPage/>

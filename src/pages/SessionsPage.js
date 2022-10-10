@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import styled from "styled-components"
 
 import LoadingPage from "./LoadingPage"
@@ -11,6 +11,7 @@ import Session from "../components/Session"
 export default function SessionsPage(){
     const [sessions, setSessions] = useState(null)
     const movieId = useParams()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const URL = `https://mock-api.driven.com.br/api/v5/cineflex/movies/${movieId.movieId}/showtimes`
@@ -18,7 +19,8 @@ export default function SessionsPage(){
             .then(res =>{ 
                 setSessions(res.data)
             })
-            .catch(err =>{
+            .catch(() =>{
+                navigate("/erro")
             })
     },[])
     

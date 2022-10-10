@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react"
-import { Link, useLocation} from "react-router-dom"
+import { Link, useLocation, useNavigate} from "react-router-dom"
 import axios from "axios"
 
 import LoadingPage from "./LoadingPage"
 import styled from "styled-components"
-import Session from "../components/Session"
 
 export default function SuccessPage(){
     const successInfo = useLocation()
-    console.log(successInfo)
     const [displayInfo, setDisplayInfo] = useState(null)
+    const navigate = useNavigate()
 
 
     useEffect(()=>{
         const URL = "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many"
         axios.post(URL, successInfo.state.customers)
-            .then( res => {
+            .then(() => {
                 setDisplayInfo(true)
             })
-            .catch(err => {
-
+            .catch(() => {
+                navigate("/erro")
             })
     })
 
@@ -52,7 +51,6 @@ export default function SuccessPage(){
                         <p data-identifier="buyer-infos-reserve-finished">CPF: {t.cpf}</p>
                     </> 
                     )}
-
                 </div>
 
                 <button data-identifier="back-to-home-btn">

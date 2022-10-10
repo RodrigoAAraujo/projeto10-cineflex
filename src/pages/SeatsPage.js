@@ -20,9 +20,9 @@ export default function SeatsPage(){
         axios.get(URL)
             .then(res => {
                 setSeats(res.data)
-                console.log(res.data)
             })
-            .catch(err =>{
+            .catch(() =>{
+                navigate("/erro")
             })
     }, [])
 

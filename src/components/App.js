@@ -6,6 +6,7 @@ import SessionsPage from "../pages/SessionsPage"
 import SeatsPage from "../pages/SeatsPage"
 import SuccessPage from "../pages/SuccesPage"
 import Header from "./Header"
+import ErrorPage from "../pages/ErrorPage"
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
                 <Route path="/sessoes/:movieId" element={<SessionsPage/>}/>
                 <Route path="/assentos/:sessionId" element={<SeatsPage/>}/>
                 <Route path="/sucesso" element={<SuccessPage/>}/>
+                <Route path="/erro" element={<ErrorPage/>}/>
             </Routes>
         </BrowserRouter>
     )
